@@ -42,6 +42,10 @@ Route::put('liberarconsultas', [ConsultaController::class, 'liberarConsultas']);
 
 Route::get('listarfumadoresporprioridad', [PacienteController::class, 'listarPacientesFumadoresUrg'] );
 
+Route::get('pacientesenconsulta', [PacienteController::class, 'obtenerPacientesEnConsulta']);
+Route::get('pacientesensalaespera', [PacienteController::class, 'obtenerPacientesEnSalaDeEspera']);
+
+Route::get('atenderpaciente/{idPaciente}', [ConsultaController::class, 'atenderPaciente']);
 Route::put('asignarconsulta/{idPaciente}', [ConsultaController::class, 'asignacionDeConsulta']);
 // Route::put('registrarpaciente', [PacienteController::class, 'registrarPaciente']);
 

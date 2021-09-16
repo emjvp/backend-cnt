@@ -20,7 +20,7 @@ class ConsultasSeeder extends Seeder
                 'cant_pacientes' => 0,
                 'nombre_especialista' => "Miguel Contreras",
                 'tipo_consulta' => "PEDIATRIA",
-                'estado' => "Desocupada"
+                'estado' => "Ocupada"
             ]
         );
 
@@ -29,7 +29,7 @@ class ConsultasSeeder extends Seeder
                 'cant_pacientes' => 0,
                 'nombre_especialista' => "Adriana Manotas",
                 'tipo_consulta' => "URGENCIAS",
-                'estado' => "Desocupada"
+                'estado' => "Ocupada"
             ]
         );
 
@@ -38,7 +38,7 @@ class ConsultasSeeder extends Seeder
                 'cant_pacientes' => 0,
                 'nombre_especialista' => "Felipe Arias",
                 'tipo_consulta' => "MEDICINA INTEGRAL MI",
-                'estado' => "Desocupada"
+                'estado' => "Ocupada"
             ]
         );
     }

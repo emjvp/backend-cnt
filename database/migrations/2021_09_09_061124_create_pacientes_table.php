@@ -24,7 +24,7 @@ class CreatePacientesTable extends Migration
             $table->integer('prioridad');
             $table->integer('riesgo');
             $table->string('ubicacion');
-            $table->string('consulta_asignada');
+            $table->string('consulta_asignada')->default('NO ASIGNADA');
             $table->unsignedBigInteger('p_ninnos_id')->nullable();
             $table->unsignedBigInteger('p_ancianos_id')->nullable();
             $table->unsignedBigInteger('p_jovenes_id')->nullable();

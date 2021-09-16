@@ -38,14 +38,14 @@ class ConsultaController extends Controller
 
         if($paciente->prioridad > 4){
 
-            $consulta = Consulta::where('tipo_consulta', 'URGENCIAS');
+            $consulta = Consulta::where('tipo_consulta', 'URGENCIAS')->get();
 
         }elseif ($paciente->edad <= 15) {
 
-            $consulta = Consulta::where('tipo_consulta', 'PEDIATRIA');
+            $consulta = Consulta::where('tipo_consulta', 'PEDIATRIA')->get();
 
         }elseif ($paciente->edad >= 16 ){
-            $consulta = Consulta::where('tipo_consulta', 'MEDICINA INTEGRAL MI');
+            $consulta = Consulta::where('tipo_consulta', 'MEDICINA INTEGRAL MI')->get();
         }
 
         if($consulta->estado == 'Desocupada')
@@ -62,8 +62,23 @@ class ConsultaController extends Controller
 
     public function atenderPaciente($idPaciente)
     {
-        $paciente = Paciente::find($idPaciente);
-        $consulta = Consulta::where('tipo_consulta', $paciente->consulta_asignada);
+        $paciente = Paciente::find($idPaciente) ;
+        $tipoConsulta = '';
+        if($paciente->prioridad > 4){
+
+            $tipoConsulta = 'URGENCIAS';
+
+        }elseif ($paciente->edad <= 15) {
+
+
+            $tipoConsulta = 'PEDIATRIA';
+
+        }elseif ($paciente->edad >= 16 ){
+            $tipoConsulta = 'MEDICINA INTEGRAL MI';
+        }
+        $consulta = Consulta::where('tipo_consulta', $tipoConsulta)->get();
+
+        // dd($consulta);
         $consulta->estado = 'Ocupada';
         $consulta->cant_pacientes++;
         $consulta->save;

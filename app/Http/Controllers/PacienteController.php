@@ -17,8 +17,19 @@ class PacienteController extends Controller
 
     public function index()
     {
-        return Paciente::all();
+        return Paciente::where('consulta_asignada', 'NO ASIGNADA')->get();
     }
+
+    public function obtenerPacientesEnConsulta()
+    {
+        return Paciente::where('consulta_asignada', '!=', 'NO ASIGNADA')->get();
+    }
+
+    public function obtenerPacientesEnSalaDeEspera()
+    {
+        return Paciente::where('ubicacion', 'Sala de espera')->get();
+    }
+
 
     public function consultarPacientesDeformaOptima()
     {
